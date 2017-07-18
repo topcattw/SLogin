@@ -1,0 +1,38 @@
+<div class="modal show">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button class="close" aria-hidden="true" type="button" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Login</h4>
+      </div>
+      <div class="modal-body">
+
+        <form class="form-horizontal" name="LoginForm" >
+          <fieldset>
+            <!--<legend>Legend</legend>-->
+            <div class="form-group">
+              <label class="col-lg-2 control-label" for="txtUsrID">帳號：</label>
+              <div class="col-lg-10">
+                <input class="form-control" id="txtUsrID" type="text" name="txtUsrID" placeholder="帳號" [(ngModel)]="this.svcLogin.oLoginIn.UsrID">
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-lg-2 control-label" for="txtPassword">密碼</label>
+              <div class="col-lg-10">
+                <input class="form-control" id="txtPassword" name="txtPassword" type="password" placeholder="密碼" [(ngModel)]="this.svcLogin.oLoginIn.PW">
+              </div>
+            </div>
+            <div *ngIf="this.svcLogin.error!=null" style="Color:red;">
+              錯誤訊息：{{this.svcLogin.error.ErrMsg}}
+            </div>
+          </fieldset>
+        </form>
+
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-default" type="button" data-dismiss="modal">取消</button>
+        <button class="btn btn-primary" type="button" (click)="this.svcLogin.doLogin()">登入</button>
+      </div>
+    </div>
+  </div>
+</div>
